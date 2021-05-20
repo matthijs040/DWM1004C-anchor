@@ -1,8 +1,8 @@
-LIBNAME		= opencm3_stm32l0
+LIBNAME		= libopencm3_stm32l0
 DEFS		+= -DSTM32L0
 
-FP_FLAGS	?= -mfloat-abi=hard -mfpu=fpv4-sp-d16
-ARCH_FLAGS	= -mthumb -mcpu=cortex-m0 $(FP_FLAGS)
+FP_FLAGS	?= -mfloat-abi=soft
+ARCH_FLAGS	= -mthumb -mcpu=cortex-m0plus $(FP_FLAGS)
 
 ################################################################################
 # OpenOCD specific variables

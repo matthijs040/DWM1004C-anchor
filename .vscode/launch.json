@@ -5,14 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "cortex-debug",
-            "request": "launch",
-            "servertype": "stutil",
             "cwd": "${workspaceRoot}",
             "executable": "./main.elf",
-            "name": "Debug (ST-Util)",
-            "device": "STM32l041g6",
-            "v1": false
+            "name": "Debug Microcontroller",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": [
+                "interface/stlink-v2.cfg",
+                "target/stm32l0.cfg"
+            ]
         }
     ]
 }
