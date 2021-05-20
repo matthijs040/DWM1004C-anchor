@@ -1,0 +1,19 @@
+LIBNAME		= opencm3_stm32l0
+DEFS		+= -DSTM32L0
+
+FP_FLAGS	?= -mfloat-abi=hard -mfpu=fpv4-sp-d16
+ARCH_FLAGS	= -mthumb -mcpu=cortex-m0 $(FP_FLAGS)
+
+################################################################################
+# OpenOCD specific variables
+
+# OOCD		        ?= openocd
+# OOCD_INTERFACE	?= stlink-v2
+# OOCD_TARGET	    ?= stm32l0x6
+
+################################################################################
+# texane/stlink specific variables
+STLINK_PORT	?= :4242
+
+
+include rules.mk
