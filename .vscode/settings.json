@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "rcc.h": "c"
+        "rcc.h": "c",
+        "spi.h": "c"
     }
 }

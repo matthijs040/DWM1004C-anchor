@@ -9,5 +9,4 @@ The purpose of this repository is to create a prototype UWB anchor using the DWM
 ## TODO:
 
 * create interface for connection to dwm chip.
-* create interface for connection to 
-
+* create interface for connection to accelerometer chip.
