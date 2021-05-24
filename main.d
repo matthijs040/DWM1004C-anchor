@@ -20,4 +20,20 @@ main.o: main.c inc/spi_opencm3.h inc/spi.h \
  /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/assert.h \
  /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/cdefs.h \
  /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/stdlib.h \
- /usr/share/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdbool.h
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdbool.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/gpio.h \
+ ../../lib/libopencm3//include/libopencm3/cm3/common.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/memorymap.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/l0/memorymap.h \
+ ../../lib/libopencm3//include/libopencm3/cm3/memorymap.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/l0/gpio.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/common/gpio_common_f24.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/common/gpio_common_f234.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/common/gpio_common_all.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/rcc.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/l0/rcc.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/pwr.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/l0/pwr.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/common/pwr_common_v2.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/common/pwr_common_v1.h \
+ ../../lib/libopencm3//include/libopencm3/stm32/common/rcc_common_all.h

@@ -8,6 +8,8 @@
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
 
+#include <stdio.h>
+
 #define GPIO_SPI_PINS ( GPIO5 | GPIO6 | GPIO7 )
 
 bool extended_data_frame()
@@ -29,7 +31,7 @@ void read(uint8_t* data, const size_t count )
 {
     if(extended_data_frame())
     {
-        for(size_t i = 0; i < count - 1; i+=2) 
+        for(size_t i = 0; i < count; i+=2) 
         {
             uint16_t ret = spi_read(SPI1);
             data[i] = ret >> sizeof(uint8_t); 
@@ -38,7 +40,7 @@ void read(uint8_t* data, const size_t count )
     }
     else
     {
-        for(size_t i  = 0; i < count - 1; i++) 
+        for(size_t i  = 0; i < count; i++) 
         {
             data[i] = (uint8_t)spi_read(SPI1);
         }
@@ -48,11 +50,11 @@ void read(uint8_t* data, const size_t count )
 void write(uint8_t* data, const size_t count)
 {
     if( extended_data_frame() )
-        for(size_t i  = 0; i < count - 1; i+=2) 
+        for(size_t i  = 0; i < count; i+=2) 
             spi_write(SPI1, (uint16_t)(data[i] | data[i + 1]) );
 
     else
-        for(size_t i  = 0; i < count - 1; i++) 
+        for(size_t i  = 0; i < count; i++) 
             spi_write(SPI1, data[i]);  
 }
 
@@ -60,23 +62,30 @@ spi_link_t spi_link_init()
 {  
     spi_disable(SPI1);
     rcc_periph_clock_enable(RCC_SPI1);
-    rcc_periph_clock_enable(RCC_GPIOA);
+    rcc_periph_clock_enable(RCC_GPIOA);    
     
-	gpio_mode_setup( GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO_SPI_PINS );
+	gpio_mode_setup( GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO_SPI_PINS );
     // Set alternate function on SPI pins to 0 (the SPI alternate function). 
     // Written on page 44 of the stm32-l0 datasheet.
 	gpio_set_af(GPIOA, GPIO_AF0, GPIO_SPI_PINS);
 
     spi_init_master( SPI1
-                   , SPI_CR1_BAUDRATE_FPCLK_DIV_16
+                   , SPI_CR1_BAUDRATE_FPCLK_DIV_32
                    , SPI_CR1_CPOL_CLK_TO_0_WHEN_IDLE
                    , SPI_CR1_CPHA_CLK_TRANSITION_1
                    , SPI_CR1_DFF_8BIT
                    , SPI_CR1_MSBFIRST );
 
     spi_set_bidirectional_mode(SPI1);
+    spi_set_full_duplex_mode(SPI1);
+    spi_set_nss_low(SPI1);
+    spi_set_frf_motorola(SPI1);
 
     spi_enable(SPI1);
+
+    uint32_t spi_speed = rcc_get_spi_clk_freq(SPI1);
+    printf("spi speed: %ld\n", spi_speed);
+
 
     spi_link_t ret = { spi_link_init, read, write };
     return ret;

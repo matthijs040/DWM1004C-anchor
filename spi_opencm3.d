@@ -42,4 +42,10 @@ spi_opencm3.o: src/spi_opencm3.c src/../inc/spi_opencm3.h \
  ../../lib/libopencm3//include/libopencm3/stm32/l0/gpio.h \
  ../../lib/libopencm3//include/libopencm3/stm32/common/gpio_common_f24.h \
  ../../lib/libopencm3//include/libopencm3/stm32/common/gpio_common_f234.h \
- ../../lib/libopencm3//include/libopencm3/stm32/common/gpio_common_all.h
+ ../../lib/libopencm3//include/libopencm3/stm32/common/gpio_common_all.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdio.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_pthreadtypes.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/types.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/stdio.h
