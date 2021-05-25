@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "rcc.h": "c",
-        "spi.h": "c"
+        "spi.h": "c",
+        "i2c.h": "c",
+        "i2c_common_v2.h": "c"
     }
 }

@@ -10,8 +10,6 @@
 
 #include <stdio.h>
 
-#define GPIO_SPI_PINS ( GPIO5 | GPIO6 | GPIO7 )
-
 bool extended_data_frame()
 {
     // The registers are already dereferenced.
@@ -37,12 +35,14 @@ void read(uint8_t* data, const size_t count )
             data[i] = ret >> sizeof(uint8_t); 
             data[i + 1] = ret;
         }
+        
     }
     else
     {
         for(size_t i  = 0; i < count; i++) 
         {
             data[i] = (uint8_t)spi_read(SPI1);
+            
         }
     }    
 }
@@ -58,8 +58,12 @@ void write(uint8_t* data, const size_t count)
             spi_write(SPI1, data[i]);  
 }
 
+#define GPIO_SPI_PINS ( GPIO5 | GPIO6 | GPIO7 )
+
 spi_link_t spi_link_init()
 {  
+
+    spi_reset(SPI1);
     spi_disable(SPI1);
     rcc_periph_clock_enable(RCC_SPI1);
     rcc_periph_clock_enable(RCC_GPIOA);    
@@ -76,7 +80,6 @@ spi_link_t spi_link_init()
                    , SPI_CR1_DFF_8BIT
                    , SPI_CR1_MSBFIRST );
 
-    spi_set_bidirectional_mode(SPI1);
     spi_set_full_duplex_mode(SPI1);
     spi_set_nss_low(SPI1);
     spi_set_frf_motorola(SPI1);
