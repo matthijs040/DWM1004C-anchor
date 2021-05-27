@@ -42,4 +42,10 @@ i2c_opencm3.o: src/i2c_opencm3.c src/../inc/i2c_opencm3.h \
  ../../lib/libopencm3//include/libopencm3/stm32/common/gpio_common_f234.h \
  ../../lib/libopencm3//include/libopencm3/stm32/common/gpio_common_all.h \
  /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/string.h \
- /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/string.h
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/string.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/stdio.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/lib/gcc/arm-none-eabi/10.2.1/include/stdarg.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/types.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_pthreadtypes.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/types.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/stdio.h
