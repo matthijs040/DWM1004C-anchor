@@ -34,15 +34,13 @@ static void i2c_write(uint8_t i2c_addr, uint8_t initial_register, uint8_t* data,
 
 i2c_link_t i2c_link_init(void)
 {
-
-	// rcc_set_peripheral_clk_sel( I2C1_BASE, RCC_CCIPR_I2C1SEL_HSI16);
 	rcc_periph_clock_enable(RCC_I2C1);
 	rcc_periph_clock_enable(RCC_GPIOA);
 
 	// Accelerate the MSI clock (the only one that is active in the uC's reset state.)
-	rcc_set_msi_range(RCC_ICSCR_MSIRANGE_4MHZ);
+    i2c_reset(I2C1);
 
-    // i2c_reset(I2C1);
+	rcc_set_peripheral_clk_sel(I2C1_BASE, RCC_CCIPR_I2C1SEL_HSI16);
 	
 
 	// Setup GPIO pin 6 and 7 on GPIO port B for alternate function. 
@@ -60,7 +58,7 @@ i2c_link_t i2c_link_init(void)
 	
 	printf("clk: %ld", clk );
 
-	i2c_set_speed(I2C1, i2c_speed_fm_400k, 4);
+	i2c_set_speed(I2C1, i2c_speed_fm_400k, clk / 1e6);
 	//configure No-Stretch CR1 (only relevant in slave mode)
 	i2c_enable_stretching(I2C1);
 	//addressing mode
