@@ -55,7 +55,7 @@ i2c_link_t i2c_link_init(void)
 	
 	printf("clk: %ld", clk );
 
-	i2c_set_speed(I2C1, i2c_speed_fm_400k, (clk / 1000000) * 2 );
+	i2c_set_speed(I2C1, i2c_speed_fm_400k, (clk / 1000000) );
 	//configure No-Stretch CR1 (only relevant in slave mode)
 	i2c_enable_stretching(I2C1);
 	//addressing mode

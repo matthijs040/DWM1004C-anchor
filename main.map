@@ -1862,22 +1862,22 @@ LOAD linker stubs
  .debug_macro   0x0000000000005429       0xbc ../../lib/libopencm3//lib/libopencm3_stm32l0.a(flash_common_all.o)
  .debug_macro   0x00000000000054e5       0xe4 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(pwr_common_v2.o)
 
-.debug_line     0x0000000000000000     0x556f
- .debug_line    0x0000000000000000      0x5cb ./i2c_opencm3.o
- .debug_line    0x00000000000005cb      0x56e ./main.o
- .debug_line    0x0000000000000b39      0x6e4 ./spi_opencm3.o
- .debug_line    0x000000000000121d      0x420 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(gpio_common_all.o)
- .debug_line    0x000000000000163d      0x516 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(gpio_common_f0234.o)
- .debug_line    0x0000000000001b53      0xab2 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(i2c_common_v2.o)
- .debug_line    0x0000000000002605      0xb83 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(rcc.o)
- .debug_line    0x0000000000003188      0x4a8 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(rcc_common_all.o)
- .debug_line    0x0000000000003630      0xa8b ../../lib/libopencm3//lib/libopencm3_stm32l0.a(spi_common_all.o)
- .debug_line    0x00000000000040bb      0x3f3 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(spi_common_v1.o)
- .debug_line    0x00000000000044ae      0x33a ../../lib/libopencm3//lib/libopencm3_stm32l0.a(spi_common_v1_frf.o)
- .debug_line    0x00000000000047e8      0x458 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(vector.o)
- .debug_line    0x0000000000004c40      0x24c ../../lib/libopencm3//lib/libopencm3_stm32l0.a(assert.o)
- .debug_line    0x0000000000004e8c      0x38e ../../lib/libopencm3//lib/libopencm3_stm32l0.a(flash_common_all.o)
- .debug_line    0x000000000000521a      0x355 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(pwr_common_v2.o)
+.debug_line     0x0000000000000000     0x5567
+ .debug_line    0x0000000000000000      0x5c3 ./i2c_opencm3.o
+ .debug_line    0x00000000000005c3      0x56e ./main.o
+ .debug_line    0x0000000000000b31      0x6e4 ./spi_opencm3.o
+ .debug_line    0x0000000000001215      0x420 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(gpio_common_all.o)
+ .debug_line    0x0000000000001635      0x516 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(gpio_common_f0234.o)
+ .debug_line    0x0000000000001b4b      0xab2 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(i2c_common_v2.o)
+ .debug_line    0x00000000000025fd      0xb83 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(rcc.o)
+ .debug_line    0x0000000000003180      0x4a8 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(rcc_common_all.o)
+ .debug_line    0x0000000000003628      0xa8b ../../lib/libopencm3//lib/libopencm3_stm32l0.a(spi_common_all.o)
+ .debug_line    0x00000000000040b3      0x3f3 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(spi_common_v1.o)
+ .debug_line    0x00000000000044a6      0x33a ../../lib/libopencm3//lib/libopencm3_stm32l0.a(spi_common_v1_frf.o)
+ .debug_line    0x00000000000047e0      0x458 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(vector.o)
+ .debug_line    0x0000000000004c38      0x24c ../../lib/libopencm3//lib/libopencm3_stm32l0.a(assert.o)
+ .debug_line    0x0000000000004e84      0x38e ../../lib/libopencm3//lib/libopencm3_stm32l0.a(flash_common_all.o)
+ .debug_line    0x0000000000005212      0x355 ../../lib/libopencm3//lib/libopencm3_stm32l0.a(pwr_common_v2.o)
 
 .debug_str      0x0000000000000000    0x11061
  .debug_str     0x0000000000000000     0xd305 ./i2c_opencm3.o
