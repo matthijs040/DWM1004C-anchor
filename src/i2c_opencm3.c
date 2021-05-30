@@ -48,8 +48,8 @@ i2c_link_t i2c_link_init(void)
 	gpio_set_af(I2C1_PORT, I2C1_AF_ID, I2C1_PINS);
 	i2c_peripheral_disable(I2C1);
 	//configure ANFOFF DNF[3:0] in CR1
-	// i2c_enable_analog_filter(I2C1);
-	// i2c_set_digital_filter(I2C1, 0);
+	i2c_enable_analog_filter(I2C1);
+	i2c_set_digital_filter(I2C1, 0);
 
 	uint32_t clk = rcc_get_i2c_clk_freq(I2C1);
 	
