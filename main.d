@@ -28,6 +28,8 @@ main.o: main.c inc/spi_opencm3.h inc/spi.h \
  /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/_pthreadtypes.h \
  /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/machine/types.h \
  /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/stdio.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/errno.h \
+ /usr/share/gcc-arm-none-eabi-10-2020-q4-major/arm-none-eabi/include/sys/errno.h \
  ../../lib/libopencm3//include/libopencm3/stm32/gpio.h \
  ../../lib/libopencm3//include/libopencm3/cm3/common.h \
  ../../lib/libopencm3//include/libopencm3/stm32/memorymap.h \

@@ -8,6 +8,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include <errno.h>
 
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/stm32/rcc.h>
@@ -27,19 +28,19 @@
 const struct rcc_clock_scale rcc_hsi_configs[] = {
 	{ /* 24 MHz -> 16 * 3 / 2 = 24 */
     	.pll_source       = RCC_CFGR_PLLSRC_HSI16_CLK,
-		.pll_mul          = RCC_CFGR_PLLMUL_MUL3,
+        .pll_mul          = RCC_CFGR_PLLMUL_MUL3,
         .pll_div          = RCC_CFGR_PLLDIV_DIV2,
 
-        .flash_waitstates = 2,
+        .flash_waitstates = 1,
 
         .voltage_scale    = PWR_SCALE1,
 
 		.hpre   = RCC_CFGR_HPRE_NODIV,
-		.ppre1  = RCC_CFGR_PPRE1_NODIV,  // 24 MHz for ppre1
+		.ppre1  = RCC_CFGR_PPRE1_DIV2,  // 24 MHz for ppre1
 		.ppre2  = RCC_CFGR_PPRE2_NODIV,  // 24
 
 		.ahb_frequency	= 24000000,
-		.apb1_frequency = 24000000,
+		.apb1_frequency = 12000000,
 		.apb2_frequency = 24000000,
         .msi_range  = RCC_ICSCR_MSIRANGE_2MHZ
 	},
@@ -48,7 +49,7 @@ const struct rcc_clock_scale rcc_hsi_configs[] = {
 		.pll_mul          = RCC_CFGR_PLLMUL_MUL3,
         .pll_div          = RCC_CFGR_PLLDIV_DIV4,
 
-        .flash_waitstates = 1,
+        .flash_waitstates = 0,
 
         .voltage_scale    = PWR_SCALE1,
 
@@ -63,10 +64,19 @@ const struct rcc_clock_scale rcc_hsi_configs[] = {
 	}
 };
 
+int _write(int file, char *ptr, int len)
+{
+    (void) file;
+    (void) ptr;
+    (void) len;
+    errno = EIO;
+    return -1;
+}
+
 
 static void clock_setup(void)
 {  
-	rcc_clock_setup_pll(&rcc_hsi_configs[1]);
+	rcc_clock_setup_pll(&rcc_hsi_configs[0]);
 }
 
 
