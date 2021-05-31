@@ -21,7 +21,7 @@ bool mpu_read_wai_register(const mpu_t mpu)
 {
     uint8_t reading = 0;
     mpu.i2c_conn.read(MPU_I2C_ADDR(mpu.alt_addr), MPU_REGISTER_WHOAMI, &reading, 1);
-    return reading == MPU_WHOAMI_RESPONSE ? true : false;
+    return reading == MPU_WHOAMI_RESPONSE;
 }
 
 accel_reading_t mpu_read_accelerometer(const mpu_t mpu)

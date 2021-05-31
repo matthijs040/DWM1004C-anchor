@@ -36,11 +36,11 @@ const struct rcc_clock_scale rcc_hsi_configs[] = {
         .voltage_scale    = PWR_SCALE1,
 
 		.hpre   = RCC_CFGR_HPRE_NODIV,
-		.ppre1  = RCC_CFGR_PPRE1_DIV2,  // 24 MHz for ppre1
+		.ppre1  = RCC_CFGR_PPRE1_NODIV,  // 24 MHz for ppre1
 		.ppre2  = RCC_CFGR_PPRE2_NODIV,  // 24
 
 		.ahb_frequency	= 24000000,
-		.apb1_frequency = 12000000,
+		.apb1_frequency = 24000000,
 		.apb2_frequency = 24000000,
         .msi_range  = RCC_ICSCR_MSIRANGE_2MHZ
 	},
@@ -88,7 +88,7 @@ int main(void)
     i2c_link_t i2c_link = i2c_link_init();
     mpu_t mpu_sensor = mpu_init(i2c_link, false);
 
-    	if( mpu_read_wai_register(mpu_sensor) )
+    if( mpu_read_wai_register(mpu_sensor) )
 	{
         		puts("Initial read request returned correctly.");
     }
