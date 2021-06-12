@@ -1,9 +1,5 @@
 #include "../inc/spi_opencm3.h"
 
-#ifndef STM32L0 // for intellisense.
-#define STM32L0
-#endif
-
 #include <libopencm3/stm32/spi.h>
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
@@ -62,9 +58,9 @@ void write(uint8_t* data, const size_t count)
 
 spi_link_t spi_link_init()
 {  
-
-    spi_reset(SPI1);
     spi_disable(SPI1);
+    spi_reset(SPI1);
+
     rcc_periph_clock_enable(RCC_SPI1);
     rcc_periph_clock_enable(RCC_GPIOA);    
     

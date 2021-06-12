@@ -5,6 +5,7 @@
 #include "inc/spi_opencm3.h"
 #include "inc/i2c_opencm3.h"
 #include "inc/mpu6050.h"
+#include "inc/lis3dh.h"
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -18,11 +19,11 @@
 #define DWM_CS_PORT    GPIOB
 #define DWM_CS_PIN     GPIO0
 
-#define LIS3DH_DEV_ADDR 0x33 // 0b00110011
-#define LIS3DH_WAI_REG  0x25
 #define LIS3_CS_PIN     GPIO15
 #define LIS3_PWR_PIN    GPIO4
 #define LIS3_CS_PORT    GPIOA
+
+#define delay(clkcycls) for (int i = 0; i < clkcycls; i++) __asm__("nop")
 
 /* 16MHz * pll_mult / pll_div / hpre / ppreX */
 const struct rcc_clock_scale rcc_hsi_configs[] = {
@@ -84,26 +85,25 @@ int main(void)
 {
     // Setting the "LIS3 PWR" pin in attempt to enable the acc.
     clock_setup();
-    
-    i2c_link_t i2c_link = i2c_link_init();
-    mpu_t mpu_sensor = mpu_init(i2c_link, false);
-
-    if( mpu_read_wai_register(mpu_sensor) )
-	{
-        		puts("Initial read request returned correctly.");
-    }
-
-    /**
+      
     rcc_periph_clock_enable(RCC_GPIOA);
 	gpio_mode_setup(LIS3_CS_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_PULLUP, LIS3_CS_PIN | LIS3_PWR_PIN );
 
     i2c_link_t i2c = i2c_link_init();
         
-    uint8_t wai_data = 0;
-    i2c.read(LIS3DH_DEV_ADDR, LIS3DH_WAI_REG, &wai_data, 1);
-    printf("wai_data: %d\n", wai_data);
+    gpio_clear(LIS3_CS_PORT, LIS3_PWR_PIN);
+    delay(100000);
+    gpio_set(LIS3_CS_PORT, LIS3_PWR_PIN);
+    delay(1000);
 
+    lis3dh_t lis3_sensor = lis3dh_init(i2c, LIS3DH_I2C_ADDRESS_2);
+
+    while( !lis3dh_read_whoami(lis3_sensor))
+    {
+        delay(1000);
+    }
     
+    /**
     // GPIO port B is the port on which the CS pin is.
     rcc_periph_clock_enable(RCC_GPIOB);
 	gpio_mode_setup( DWM_CS_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, DWM_CS_PIN );
@@ -121,5 +121,5 @@ int main(void)
     gpio_set(DWM_CS_PORT, DWM_CS_PIN);
     **/
 
-    while(true);
+    return EXIT_SUCCESS;
 }
