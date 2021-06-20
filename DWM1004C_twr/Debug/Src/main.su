@@ -1,0 +1,14 @@
+main.c:729:13:MX_CRC_Init	8	static
+main.c:1009:13:MX_GPIO_Init	80	static
+main.c:854:13:MX_SPI1_Init	96	static
+main.c:927:13:MX_USART2_UART_Init	88	static
+main.c:758:13:MX_I2C1_Init	88	static
+main.c:822:13:MX_RTC_Init	24	static
+main.c:196:9:get_msb	0	static
+main.c:209:10:dB_x100	8	static
+main.c:226:6:get_ext_diag_info	16	static
+main.c:279:6:resp_to_poll	32	static
+main.c:343:6:calc_tof_from_rcved_resp	64	static
+main.c:676:6:SystemClock_Config	8	static
+main.c:447:5:main	24	static
+main.c:1166:6:Error_Handler	0	static

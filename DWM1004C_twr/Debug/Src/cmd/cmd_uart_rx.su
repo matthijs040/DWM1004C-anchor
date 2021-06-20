@@ -1,0 +1,2 @@
+cmd_uart_rx.c:34:13:waitForCommand	16	static
+cmd_uart_rx.c:122:6:process_uartmsg	72	static

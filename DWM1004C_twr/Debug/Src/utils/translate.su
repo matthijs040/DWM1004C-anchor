@@ -1,0 +1,10 @@
+translate.c:15:5:chan_to_deca	0	static
+translate.c:36:5:deca_to_chan	8	static
+translate.c:43:5:bitrate_to_deca	0	static
+translate.c:58:5:deca_to_bitrate	0	static
+translate.c:75:5:prf_to_deca	0	static
+translate.c:89:5:deca_to_prf	0	static
+translate.c:104:5:pac_to_deca	0	static
+translate.c:121:5:deca_to_pac	0	static
+translate.c:140:5:plen_to_deca	0	static
+translate.c:165:5:deca_to_plen	0	static
